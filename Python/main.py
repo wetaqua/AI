@@ -6,7 +6,7 @@ from openai import OpenAI
 
 history = []  # Seznam pro uchování konverzace
 
-client = genai.Client(api_key="AIzaSyA05IRfhz8n3phGQaqgB6_LX2GEL2zw-lY")
+client = genai.Client(api_key="")
 
 response = client.models.generate_content(
     model="gemini-2.0-flash", contents=

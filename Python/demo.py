@@ -7,7 +7,7 @@ import time
 import threading
 
 # Inicializace API klienta
-client = genai.Client(api_key="AIzaSyA05IRfhz8n3phGQaqgB6_LX2GEL2zw-lY")
+client = genai.Client(api_key="")
 
 # Inicializace rozpoznávání hlasu
 recognizer = sr.Recognizer()
