@@ -10,6 +10,15 @@ from dotenv import load_dotenv
 import json
 load_dotenv()
 
+
+settings = ( #global settings
+    [
+    "en-UK", #language code for text to speech
+    "key.json" #path to the key file for text to speech
+])
+
+
+
 Genai.configure(api_key=os.getenv("GENAI_API_KEY")) #API key in .env file
 
 client = genai.Client(api_key=os.getenv("GENAI_API_KEY"))#API key in .env file
@@ -56,12 +65,12 @@ chat_session = model.start_chat( #history of the chat
 )
 
 def TTS(response_text): #Google Could text to speech
-    client = texttospeech.TextToSpeechClient.from_service_account_json("key.json")
+    client = texttospeech.TextToSpeechClient.from_service_account_json(settings[1])
 
     input_text = texttospeech.SynthesisInput(text=response_text)
 
     voice = texttospeech.VoiceSelectionParams(
-        language_code="cs-CZ",
+        language_code=settings[0],
         ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
     )
 
